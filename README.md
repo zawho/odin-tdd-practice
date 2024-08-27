@@ -1,1 +1,1 @@
-# odin-tdd-practice
+August 27, 2024 - I am now beginning the test driven development practice project as a part of The Odin Project's Javascript track. Nothing too crazy here, just going to be putting TDD into practice via Jest.
