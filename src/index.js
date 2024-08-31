@@ -1,5 +1,6 @@
-function sum(a, b) {
-    return a + b;
+function capitalize(string) {
+	const firstLetter = string.charAt(0).toUpperCase();
+	return firstLetter + string.slice(1);
 }
 
-export default sum;
+export default capitalize;

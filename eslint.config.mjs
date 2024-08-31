@@ -4,8 +4,8 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import jest from "eslint-plugin-jest";
 
 export default [
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  eslintConfigPrettier,
-  jest,
+	{ languageOptions: { globals: globals.browser } },
+	pluginJs.configs.recommended,
+	eslintConfigPrettier,
+	jest,
 ];
