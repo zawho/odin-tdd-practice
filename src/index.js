@@ -3,4 +3,22 @@ function capitalize(string) {
 	return firstLetter + string.slice(1);
 }
 
-export default capitalize;
+function reverseString(string) {
+	const arr = [];
+	let reverseArr;
+	let reverseString = "";
+
+	for (let i = 0; i < string.length; i++) {
+		arr.push(string[i]);
+	}
+
+	reverseArr = arr.reverse();
+
+	reverseArr.forEach((letter) => {
+		reverseString += letter;
+	});
+
+	return reverseString;
+}
+
+export { capitalize, reverseString };
