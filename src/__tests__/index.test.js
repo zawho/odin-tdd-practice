@@ -1,4 +1,9 @@
-import { capitalize, reverseString, calculator } from "../index.js";
+import {
+	capitalize,
+	reverseString,
+	calculator,
+	shiftCipher,
+} from "../index.js";
 
 test('capitalizes "hello" as "Hello"', () => {
 	expect(capitalize("hello")).toBe("Hello");
@@ -22,4 +27,8 @@ test("Multiply 9 by 5 to equal 45", () => {
 
 test("Divide 24 by 6 to equal 4", () => {
 	expect(calculator.divide(24, 6)).toBe(4);
+});
+
+test('Encrypt "hello" as "ifmmp"', () => {
+	expect(shiftCipher("hello", 1)).toBe("ifmmp");
 });

@@ -36,4 +36,29 @@ const calculator = {
 	},
 };
 
-export { capitalize, reverseString, calculator };
+function shiftCipher(string, key) {
+	const alphabetArr = "abcdefghijklmnopqrstuvwxyz".split("");
+	const stringArr = [];
+	const shiftedArr = [];
+	let shiftedString = "";
+
+	for (let i = 0; i < string.length; i++) {
+		stringArr.push(string[i]);
+	}
+
+	stringArr.forEach((letter) => {
+		for (let i = 0; i < alphabetArr.length; i++) {
+			if (letter === alphabetArr[i]) {
+				shiftedArr.push(alphabetArr[i + key]);
+			}
+		}
+	});
+
+	shiftedArr.forEach((letter) => {
+		shiftedString += letter;
+	});
+
+	return shiftedString;
+}
+
+export { capitalize, reverseString, calculator, shiftCipher };
