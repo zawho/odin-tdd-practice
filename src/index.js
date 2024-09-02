@@ -49,7 +49,11 @@ function shiftCipher(string, key) {
 	stringArr.forEach((letter) => {
 		for (let i = 0; i < alphabetArr.length; i++) {
 			if (letter === alphabetArr[i]) {
-				shiftedArr.push(alphabetArr[i + key]);
+                if ((i + key) > (alphabetArr.length - 1)) {
+                    shiftedArr.push(alphabetArr[(i + key) % alphabetArr.length]);
+                } else { 
+                    shiftedArr.push(alphabetArr[i + key]);
+                }
 			}
 		}
 	});
