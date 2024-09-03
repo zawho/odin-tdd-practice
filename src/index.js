@@ -37,25 +37,25 @@ const calculator = {
 };
 
 function stringToArr(string, arr) {
-    for (let i = 0; i < string.length; i++) {
+	for (let i = 0; i < string.length; i++) {
 		arr.push(string[i]);
 	}
 }
 
 function checkUpperCase(string, shift) {
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] === string[i].toUpperCase()) {
-            shift[i] = shift[i].toUpperCase();
-        }
-    }
+	for (let i = 0; i < string.length; i++) {
+		if (string[i] === string[i].toUpperCase()) {
+			shift[i] = shift[i].toUpperCase();
+		}
+	}
 }
 
 function arrToString(arr) {
-    let string = '';
-    arr.forEach((item) => {
+	let string = '';
+	arr.forEach((item) => {
 		string += item;
 	});
-    return string;
+	return string;
 }
 
 function shiftCipher(string, key) {
@@ -69,21 +69,25 @@ function shiftCipher(string, key) {
 	stringArr.forEach((item) => {
 		for (let i = 0; i < alphabetArr.length; i++) {
 			if (item.toLowerCase() === alphabetArr[i]) {
-                if ((i + key) > (alphabetArr.length - 1)) {
-                    shiftedArr.push(alphabetArr[(i + key) % alphabetArr.length]);
-                } else { 
-                    shiftedArr.push(alphabetArr[i + key]);
-                }
-			} 
+				if (i + key > alphabetArr.length - 1) {
+					shiftedArr.push(alphabetArr[(i + key) % alphabetArr.length]);
+				} else {
+					shiftedArr.push(alphabetArr[i + key]);
+				}
+			}
 		}
-        if (!alphabetArr.includes(item.toLowerCase())) {
-            shiftedArr.push(item);
-        }
+		if (!alphabetArr.includes(item.toLowerCase())) {
+			shiftedArr.push(item);
+		}
 	});
 
-    checkUpperCase(stringArr, shiftedArr);
+	checkUpperCase(stringArr, shiftedArr);
 
 	return arrToString(shiftedArr);
 }
 
-export { capitalize, reverseString, calculator, shiftCipher };
+function analyzeArr(arr) {
+	return arr;
+}
+
+export { capitalize, reverseString, calculator, shiftCipher, analyzeArr };
