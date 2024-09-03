@@ -43,25 +43,29 @@ function shiftCipher(string, key) {
 	let shiftedString = '';
 
 	for (let i = 0; i < string.length; i++) {
-		stringArr.push(string[i].toLowerCase());
+		stringArr.push(string[i]);
 	}
 
 	stringArr.forEach((item) => {
 		for (let i = 0; i < alphabetArr.length; i++) {
-			if (item === alphabetArr[i]) {
+			if (item.toLowerCase() === alphabetArr[i]) {
                 if ((i + key) > (alphabetArr.length - 1)) {
                     shiftedArr.push(alphabetArr[(i + key) % alphabetArr.length]);
                 } else { 
                     shiftedArr.push(alphabetArr[i + key]);
                 }
 			} 
-		} 
-        
-        if (!alphabetArr.includes(item)) {
+		}
+        if (!alphabetArr.includes(item.toLowerCase())) {
             shiftedArr.push(item);
         }
-        
 	});
+
+    for (let i = 0; i < stringArr.length; i++) {
+        if (stringArr[i] === stringArr[i].toUpperCase()) {
+            shiftedArr[i] = shiftedArr[i].toUpperCase();
+        }
+    }
 
 	shiftedArr.forEach((item) => {
 		shiftedString += item;
