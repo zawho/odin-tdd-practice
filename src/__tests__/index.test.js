@@ -36,3 +36,7 @@ test('Encrypt "hello" as "ifmmp" with a key of 1', () => {
 test('Encrypt "xyz" as "abc" with a key of 3', () => {
   expect(shiftCipher('xyz', 3)).toBe('abc');
 });
+
+test('Encrypt "Hello, world!" as "Gdkkn, vnqkc!" with a key of 25', () => {
+  expect(shiftCipher('Hello, world!', 25)).toBe('Gdkkn, vnqkc!');
+});

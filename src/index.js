@@ -6,7 +6,7 @@ function capitalize(string) {
 function reverseString(string) {
 	const arr = [];
 	let reverseArr;
-	let reverseString = "";
+	let reverseString = '';
 
 	for (let i = 0; i < string.length; i++) {
 		arr.push(string[i]);
@@ -37,29 +37,34 @@ const calculator = {
 };
 
 function shiftCipher(string, key) {
-	const alphabetArr = "abcdefghijklmnopqrstuvwxyz".split("");
+	const alphabetArr = 'abcdefghijklmnopqrstuvwxyz'.split('');
 	const stringArr = [];
 	const shiftedArr = [];
-	let shiftedString = "";
+	let shiftedString = '';
 
 	for (let i = 0; i < string.length; i++) {
-		stringArr.push(string[i]);
+		stringArr.push(string[i].toLowerCase());
 	}
 
-	stringArr.forEach((letter) => {
+	stringArr.forEach((item) => {
 		for (let i = 0; i < alphabetArr.length; i++) {
-			if (letter === alphabetArr[i]) {
+			if (item === alphabetArr[i]) {
                 if ((i + key) > (alphabetArr.length - 1)) {
                     shiftedArr.push(alphabetArr[(i + key) % alphabetArr.length]);
                 } else { 
                     shiftedArr.push(alphabetArr[i + key]);
                 }
-			}
-		}
+			} 
+		} 
+        
+        if (!alphabetArr.includes(item)) {
+            shiftedArr.push(item);
+        }
+        
 	});
 
-	shiftedArr.forEach((letter) => {
-		shiftedString += letter;
+	shiftedArr.forEach((item) => {
+		shiftedString += item;
 	});
 
 	return shiftedString;
