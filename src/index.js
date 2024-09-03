@@ -36,15 +36,35 @@ const calculator = {
 	},
 };
 
+function stringToArr(string, arr) {
+    for (let i = 0; i < string.length; i++) {
+		arr.push(string[i]);
+	}
+}
+
+function checkUpperCase(string, shift) {
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === string[i].toUpperCase()) {
+            shift[i] = shift[i].toUpperCase();
+        }
+    }
+}
+
+function arrToString(arr) {
+    let string = '';
+    arr.forEach((item) => {
+		string += item;
+	});
+    return string;
+}
+
 function shiftCipher(string, key) {
 	const alphabetArr = 'abcdefghijklmnopqrstuvwxyz'.split('');
 	const stringArr = [];
 	const shiftedArr = [];
 	let shiftedString = '';
 
-	for (let i = 0; i < string.length; i++) {
-		stringArr.push(string[i]);
-	}
+	stringToArr(string, stringArr);
 
 	stringArr.forEach((item) => {
 		for (let i = 0; i < alphabetArr.length; i++) {
@@ -61,17 +81,9 @@ function shiftCipher(string, key) {
         }
 	});
 
-    for (let i = 0; i < stringArr.length; i++) {
-        if (stringArr[i] === stringArr[i].toUpperCase()) {
-            shiftedArr[i] = shiftedArr[i].toUpperCase();
-        }
-    }
+    checkUpperCase(stringArr, shiftedArr);
 
-	shiftedArr.forEach((item) => {
-		shiftedString += item;
-	});
-
-	return shiftedString;
+	return arrToString(shiftedArr);
 }
 
 export { capitalize, reverseString, calculator, shiftCipher };
